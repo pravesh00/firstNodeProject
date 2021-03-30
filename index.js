@@ -12,6 +12,11 @@ const api=process.env.API_VER;
 app.use(express.json());
 app.use(morgan('tiny'));
 
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
+
 mongoose.connect(process.env.CONNECTION_STRING)
 .then(()=>{
     console.log("Database Connected");
@@ -42,6 +47,3 @@ app.post('/pro',(req,res)=>{
         })
     });
 });
-app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
