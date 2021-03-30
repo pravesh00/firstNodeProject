@@ -23,7 +23,7 @@ const bnbSchema= mongoose.Schema({
 
 const bnbModel=mongoose.model('H',bnbSchema);
 
-app.get('/pro',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send("Chal na")
 })
 
