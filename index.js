@@ -4,7 +4,9 @@ require('dotenv/config')
 const morgan=require('morgan');
 const mongoose=require('mongoose');
 
-
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 
 
 const api=process.env.API_VER;
@@ -23,7 +25,7 @@ const bnbSchema= mongoose.Schema({
 
 const bnbModel=mongoose.model('H',bnbSchema);
 
-app.get('/',(req,res)=>{
+app.get('/pro',(req,res)=>{
     res.send("Chal na")
 })
 
@@ -42,6 +44,3 @@ app.post('/pro',(req,res)=>{
         })
     });
 });
-app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
